@@ -31,7 +31,7 @@ let whereAmI = (lat, lng)=>{
 
 
 
-whereAmI(52.508, 13.381)
+//whereAmI(52.508, 13.381)
 
 
 export default 'cc1'
