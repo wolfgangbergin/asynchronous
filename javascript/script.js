@@ -7,6 +7,7 @@ import test6 from './test6.js';
 import test8 from './test8.js';
 import test9 from './test9.js';
 import test10 from './test10.js';
+import test11 from './test11.js';
 import cc1 from './CC/cc1.js';
 
 
