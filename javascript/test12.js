@@ -1,3 +1,6 @@
+
+import { whereAmI } from "./CC/cc1.js";
+
 const geoFunc = () => {
   const proimes = new Promise();
 
@@ -6,7 +9,7 @@ const geoFunc = () => {
 
 wolfgang
   .proimeFy(wolfgang.geoFunc)
-  .then(res => l(res.coords.longitude, res.coords.latitude))
+  .then(res => whereAmI(res.coords.latitude, res.coords.longitude ))
   .catch(err => l(err.message));
 
 export default 'test12';

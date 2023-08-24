@@ -11,9 +11,7 @@ import { wolffunc } from "../script.js"
 let whereAmI = (lat, lng)=>{
     const temp = fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
     .then((res)=>{
-        //  if(!res.ok){
-        //     throw new Error(`Error Throttled!🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬`)
-        // }
+        
        return  res.json()})
     .then((res)=>{
      
@@ -31,7 +29,7 @@ let whereAmI = (lat, lng)=>{
 
 
 
-//whereAmI(52.508, 13.381)
+// whereAmI(42.3834, -83.2966)
 
-
+export {whereAmI}
 export default 'cc1'
