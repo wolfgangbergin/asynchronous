@@ -41,8 +41,13 @@ globalThis.renderError = message => {
   // countriesContainer.style.opacity = 1
 };
 
-globalThis.wolfJson = (response = undefined, className = '', cbf, eMessage, url) => {
-
+globalThis.wolfJson = (
+  response = undefined,
+  className = '',
+  cbf,
+  eMessage,
+  url
+) => {
   return fetch(`${url}/${response}`)
     .then(response => {
       if (!response.ok) {
@@ -53,12 +58,28 @@ globalThis.wolfJson = (response = undefined, className = '', cbf, eMessage, url)
     })
     .then(data => {
       if (Array.isArray(data)) {
-        
         return cbf(...data, undefined, className);
       } else {
         return cbf(data, undefined, className);
       }
-      
-      
     });
 };
+
+const wolfgang = {
+  proimeFy: cbf => {
+    const proimes = new Promise(cbf);
+    return proimes;
+  },
+  geoFunc: (res, rej) => {
+    navigator.geolocation.getCurrentPosition(
+      function (position) {
+        res(position);
+      },
+      function (err) {
+        rej(err);
+      }
+    );
+  },
+};
+
+Object.freeze(wolfgang);
