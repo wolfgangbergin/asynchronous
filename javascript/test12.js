@@ -1,11 +1,7 @@
 
 import { whereAmI } from "./CC/cc1.js";
 
-const geoFunc = () => {
-  const proimes = new Promise();
 
-  return proimes;
-};
 
 wolfgang
   .proimeFy(wolfgang.geoFunc)

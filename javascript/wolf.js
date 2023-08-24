@@ -72,10 +72,10 @@ const wolfgang = {
   },
   geoFunc: (res, rej) => {
     navigator.geolocation.getCurrentPosition(
-      function (position) {
+      (position) => {
         res(position);
       },
-      function (err) {
+       (err) =>{
         rej(err);
       }
     );
