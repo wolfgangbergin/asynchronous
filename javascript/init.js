@@ -1,25 +1,36 @@
 window.l = console.log;
 window.d = console.dir;
 
+///////////////////////////////////////////////
+window.wolfgang = {
+  btn: document.querySelector('.btn-country'),
+  countriesContainer: document.querySelector('.countries'),
+  btn2: document.querySelector('.btn-country2'),
+  countriesContainer2: document.querySelector('.countries2'),
+};
 
-globalThis.renderCountry = function (
+///////////////////////////////////////////////
+
+wolfgang.renderCountry = function (
   data,
   ele = wolfgang.countriesContainer,
   className = ''
 ) {
   const html = `
-      <article class="country ${className}">
-      <img class="country__img" src="${data.flag}" /> 
-      <div class="country__data">
-          <h3 class="country__name">"${data.name}"</h3>
-          <h4 class="country__region">${data.region}</h4>
-          <p class="country__row"><span>👫</span>${(
-            +data.population / 10000000
-          ).toFixed(1)}m people</p>
-          <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
-          <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
-      </div>
-      </article>`;
+        <article class="country ${className}">
+        <img class="country__img" src="${data.flag}" /> 
+        <div class="country__data">
+            <h3 class="country__name">"${data.name}"</h3>
+            <h4 class="country__region">${data.region}</h4>
+            <p class="country__row"><span>👫</span>${(
+              +data.population / 10000000
+            ).toFixed(1)}m people</p>
+            <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+            <p class="country__row"><span>💰</span>${
+              data.currencies[0].name
+            }</p>
+        </div>
+        </article>`;
   if (ele === wolfgang.countriesContainer) {
     wolfgang.countriesContainer.insertAdjacentHTML('beforeend', html);
     //  wolfgang.countriesContainer.style.opacity = 1;
@@ -33,12 +44,12 @@ globalThis.renderCountry = function (
   return data;
 };
 
-globalThis.renderError = message => {
+wolfgang.renderError = message => {
   wolfgang.countriesContainer.insertAdjacentText('beforeend', message);
   // wolfgang.countriesContainer.style.opacity = 1
 };
 
-globalThis.wolfJson = (
+wolfgang.wolfJson = (
   response = undefined,
   className = '',
   cbf,
@@ -61,35 +72,24 @@ globalThis.wolfJson = (
       }
     });
 };
-///////////////////////////////////////////////
-window.wolfgang = {
-    btn: document.querySelector('.btn-country'),
-countriesContainer: document.querySelector('.countries'),
-btn2: document.querySelector('.btn-country2'),
-countriesContainer2: document.querySelector('.countries2'),
 
-};
+(wolfgang.proimeFy = function (cbf) {
+  const proimes = new Promise(cbf);
 
-///////////////////////////////////////////////
-
-wolfgang.proimeFy = function (cbf) {
-    const proimes = new Promise(cbf);
-
-    return proimes;
-  },
-
-(wolfgang.geoFunc = function (res, rej) {
-  // navigator.geolocation.getCurrentPosition(
-  //   (position) => {
-  //     res(position);
-  //   },
-  //    (err) =>{
-  //     rej(err);
-  //   }
-  // );
-
-  navigator.geolocation.getCurrentPosition(res, rej);
+  return proimes;
 }),
+  (wolfgang.geoFunc = function (res, rej) {
+    // navigator.geolocation.getCurrentPosition(
+    //   (position) => {
+    //     res(position);
+    //   },
+    //    (err) =>{
+    //     rej(err);
+    //   }
+    // );
+
+    navigator.geolocation.getCurrentPosition(res, rej);
+  }),
   (wolfgang.gitposition = function () {
     return wolfgang.proimeFy(wolfgang.geoFunc);
   });
@@ -107,27 +107,29 @@ wolfgang.whereAmI = (lat, lng) => {
       wolfgang.wolffunc(res.country);
     })
 
-    .catch(err => {
-      l(`${err.message} AT=> lineNumber ${err.lineNumber}  `);
+    .catch(error => {
+      wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
+      l(`${error.message} AT=> lineNumber ${error.lineNumber}  `);
     });
 };
 
 wolfgang.wolffunc = function (country) {
-  wolfJson(
-    country,
-    undefined,
-    renderCountry,
-    `country Not Found`,
-    `https://restcountries.com/v2/name`
-  )
+  wolfgang
+    .wolfJson(
+      country,
+      undefined,
+      wolfgang.renderCountry,
+      `country Not Found`,
+      `https://restcountries.com/v2/name`
+    )
     .then(response => {
       if (!response.borders) {
         throw new Error(`${response.name} Has no Borders`);
       }
-      return wolfJson(
+      return wolfgang.wolfJson(
         response?.borders[1],
         'neighbour',
-        renderCountry,
+        wolfgang.renderCountry,
         `country Not Found`,
         `https://restcountries.com/v2/alpha`
       );
@@ -136,16 +138,17 @@ wolfgang.wolffunc = function (country) {
       if (!response.borders) {
         throw new Error(`${response.name} Has no Borders`);
       }
-      return wolfJson(
+      return wolfgang.wolfJson(
         response.borders[1],
         'neighbour',
-        renderCountry,
+        wolfgang.renderCountry,
         `country Not Found`,
         `https://restcountries.com/v2/alpha`
       );
     })
     .catch(error => {
-      renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
+      d(error);
+      wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
     })
     .finally(() => (wolfgang.countriesContainer.style.opacity = 1));
 };
