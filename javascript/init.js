@@ -1,13 +1,10 @@
 window.l = console.log;
 window.d = console.dir;
-globalThis.btn = document.querySelector('.btn-country');
-globalThis.countriesContainer = document.querySelector('.countries');
-globalThis.btn2 = document.querySelector('.btn-country2');
-globalThis.countriesContainer2 = document.querySelector('.countries2');
+
 
 globalThis.renderCountry = function (
   data,
-  ele = countriesContainer,
+  ele = wolfgang.countriesContainer,
   className = ''
 ) {
   const html = `
@@ -23,22 +20,22 @@ globalThis.renderCountry = function (
           <p class="country__row"><span>💰</span>${data.currencies[0].name}</p>
       </div>
       </article>`;
-  if (ele === countriesContainer) {
-    countriesContainer.insertAdjacentHTML('beforeend', html);
-    //  countriesContainer.style.opacity = 1;
+  if (ele === wolfgang.countriesContainer) {
+    wolfgang.countriesContainer.insertAdjacentHTML('beforeend', html);
+    //  wolfgang.countriesContainer.style.opacity = 1;
   }
 
-  if (ele === countriesContainer2) {
-    countriesContainer2.insertAdjacentHTML('beforeend', html);
-    countriesContainer2.style.opacity = 1;
+  if (ele === wolfgang.countriesContainer2) {
+    wolfgang.countriesContainer2.insertAdjacentHTML('beforeend', html);
+    wolfgang.countriesContainer2.style.opacity = 1;
   }
 
   return data;
 };
 
 globalThis.renderError = message => {
-  countriesContainer.insertAdjacentText('beforeend', message);
-  // countriesContainer.style.opacity = 1
+  wolfgang.countriesContainer.insertAdjacentText('beforeend', message);
+  // wolfgang.countriesContainer.style.opacity = 1
 };
 
 globalThis.wolfJson = (
@@ -66,29 +63,36 @@ globalThis.wolfJson = (
 };
 ///////////////////////////////////////////////
 window.wolfgang = {
-  proimeFy: function (cbf) {
+    btn: document.querySelector('.btn-country'),
+countriesContainer: document.querySelector('.countries'),
+btn2: document.querySelector('.btn-country2'),
+countriesContainer2: document.querySelector('.countries2'),
+
+};
+
+///////////////////////////////////////////////
+
+wolfgang.proimeFy = function (cbf) {
     const proimes = new Promise(cbf);
 
     return proimes;
   },
-  geoFunc: function (res, rej) {
-    // navigator.geolocation.getCurrentPosition(
-    //   (position) => {
-    //     res(position);
-    //   },
-    //    (err) =>{
-    //     rej(err);
-    //   }
-    // );
 
-    navigator.geolocation.getCurrentPosition(res, rej);
-  },
-};
-wolfgang.gitposition = function () {
-  return wolfgang.proimeFy(wolfgang.geoFunc);
-};
+(wolfgang.geoFunc = function (res, rej) {
+  // navigator.geolocation.getCurrentPosition(
+  //   (position) => {
+  //     res(position);
+  //   },
+  //    (err) =>{
+  //     rej(err);
+  //   }
+  // );
 
-///////////////////////////////////////////////
+  navigator.geolocation.getCurrentPosition(res, rej);
+}),
+  (wolfgang.gitposition = function () {
+    return wolfgang.proimeFy(wolfgang.geoFunc);
+  });
 
 wolfgang.whereAmI = (lat, lng) => {
   const temp = fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
@@ -108,45 +112,43 @@ wolfgang.whereAmI = (lat, lng) => {
     });
 };
 
-
 wolfgang.wolffunc = function (country) {
-    wolfJson(
-      country,
-      undefined,
-      renderCountry,
-      `country Not Found`,
-      `https://restcountries.com/v2/name`
-    )
-      .then(response => {
-        if (!response.borders) {
-          throw new Error(`${response.name} Has no Borders`);
-        }
-        return wolfJson(
-          response?.borders[1],
-          'neighbour',
-          renderCountry,
-          `country Not Found`,
-          `https://restcountries.com/v2/alpha`
-        );
-      })
-      .then(response => {
-        if (!response.borders) {
-          throw new Error(`${response.name} Has no Borders`);
-        }
-        return wolfJson(
-          response.borders[1],
-          'neighbour',
-          renderCountry,
-          `country Not Found`,
-          `https://restcountries.com/v2/alpha`
-        );
-      })
-      .catch(error => {
-        renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
-      })
-      .finally(() => (countriesContainer.style.opacity = 1));
-  };
-  
+  wolfJson(
+    country,
+    undefined,
+    renderCountry,
+    `country Not Found`,
+    `https://restcountries.com/v2/name`
+  )
+    .then(response => {
+      if (!response.borders) {
+        throw new Error(`${response.name} Has no Borders`);
+      }
+      return wolfJson(
+        response?.borders[1],
+        'neighbour',
+        renderCountry,
+        `country Not Found`,
+        `https://restcountries.com/v2/alpha`
+      );
+    })
+    .then(response => {
+      if (!response.borders) {
+        throw new Error(`${response.name} Has no Borders`);
+      }
+      return wolfJson(
+        response.borders[1],
+        'neighbour',
+        renderCountry,
+        `country Not Found`,
+        `https://restcountries.com/v2/alpha`
+      );
+    })
+    .catch(error => {
+      renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
+    })
+    .finally(() => (wolfgang.countriesContainer.style.opacity = 1));
+};
 
 Object.freeze(wolfgang);
 

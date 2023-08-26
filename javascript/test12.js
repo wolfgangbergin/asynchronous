@@ -9,6 +9,6 @@ const tempFunc = () => {
   
 }
 
-btn.addEventListener('click', tempFunc);
+wolfgang.btn.addEventListener('click', tempFunc);
 
 export default 'test12';
