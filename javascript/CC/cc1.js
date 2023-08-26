@@ -11,7 +11,7 @@ import { wolffunc } from "../script.js"
 let whereAmI = (lat, lng)=>{
     const temp = fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
     .then((res)=>{
-        
+      
        return  res.json()})
     .then((res)=>{
      
