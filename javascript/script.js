@@ -13,7 +13,6 @@ import test12 from './test12.js';
 import testTest from './testTest.js';
 import cc1 from './CC/cc1.js';
 
-
 let wolffunc = function (country) {
   wolfJson(
     country,
@@ -54,4 +53,4 @@ let wolffunc = function (country) {
 
 // wolffunc('cuba');
 
-export {wolffunc}
+// export {wolffunc}

@@ -1,10 +1,10 @@
 
-import { whereAmI } from "./CC/cc1.js";
+// import { whereAmI } from "./CC/cc1.js";
 
 
 const tempFunc = () => {
     wolfgang.gitposition()
-    .then(res => whereAmI(res.coords.latitude, res.coords.longitude ))
+    .then(res => wolfgang.whereAmI(res.coords.latitude, res.coords.longitude ))
     .catch(err => l(err));
   
 }
