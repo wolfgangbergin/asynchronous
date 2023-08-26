@@ -1,3 +1,4 @@
+import init from './init.js';
 import test1 from './test1.js';
 import test2 from './test2.js';
 import test3 from './test3.js';
@@ -9,8 +10,8 @@ import test9 from './test9.js';
 import test10 from './test10.js';
 import test11 from './test11.js';
 import test12 from './test12.js';
+import testTest from './testTest.js';
 import cc1 from './CC/cc1.js';
-
 
 
 let wolffunc = function (country) {

@@ -3,9 +3,9 @@ import { whereAmI } from "./CC/cc1.js";
 
 
 
-wolfgang
-  .proimeFy(wolfgang.geoFunc)
+
+wolfgang.gitposition()
   .then(res => whereAmI(res.coords.latitude, res.coords.longitude ))
-  .catch(err => l(err.message));
+  .catch(err => l(err));
 
 export default 'test12';

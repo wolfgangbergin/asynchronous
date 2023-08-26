@@ -1,9 +1,6 @@
-globalThis.l = console.log;
 
-globalThis.btn = document.querySelector('.btn-country');
-globalThis.countriesContainer = document.querySelector('.countries');
-globalThis.btn2 = document.querySelector('.btn-country2');
-globalThis.countriesContainer2 = document.querySelector('.countries2');
+
+
 
 globalThis.renderCountry = function (
   data,
@@ -66,20 +63,29 @@ globalThis.wolfJson = (
 };
 
 const wolfgang = {
-  proimeFy: cbf => {
+  proimeFy: function (cbf) {
     const proimes = new Promise(cbf);
+
     return proimes;
   },
-  geoFunc: (res, rej) => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        res(position);
-      },
-       (err) =>{
-        rej(err);
-      }
-    );
+  geoFunc: function (res, rej) {
+    // navigator.geolocation.getCurrentPosition(
+    //   (position) => {
+    //     res(position);
+    //   },
+    //    (err) =>{
+    //     rej(err);
+    //   }
+    // );
+
+    navigator.geolocation.getCurrentPosition(res, rej);
   },
 };
+wolfgang.gitposition = function () {
+  return wolfgang.proimeFy(wolfgang.geoFunc);
+};
+
+///////////////////////////////////////////////
+
 
 Object.freeze(wolfgang);
