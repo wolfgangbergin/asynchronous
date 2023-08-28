@@ -5,8 +5,8 @@ window.d = console.dir;
 window.wolfgang = {
   btn: document.querySelector('.btn-country'),
   countriesContainer: document.querySelector('.countries'),
-  btn2: document.querySelector('.btn-country2'),
-  countriesContainer2: document.querySelector('.countries2'),
+  // btn2: document.querySelector('.btn-country2'),
+  // countriesContainer2: document.querySelector('.countries2'),
 };
 
 ///////////////////////////////////////////////
@@ -79,15 +79,7 @@ wolfgang.wolfJson = (
   return proimes;
 }),
   (wolfgang.geoFunc = function (res, rej) {
-    // navigator.geolocation.getCurrentPosition(
-    //   (position) => {
-    //     res(position);
-    //   },
-    //    (err) =>{
-    //     rej(err);
-    //   }
-    // );
-
+   
     navigator.geolocation.getCurrentPosition(res, rej);
   }),
   (wolfgang.gitposition = function () {
@@ -153,6 +145,19 @@ wolfgang.wolffunc = function (country) {
     .finally(() => (wolfgang.countriesContainer.style.opacity = 1));
 };
 
+
+wolfgang.creatImage = (path)=>{
+  const promise = new Promise((res, rej, path)=>{
+   let temp =  document.createElement('img')
+   temp.src = path
+   res(temp),
+   rej(new Error('image load error ♞♞♔'))
+  })
+
+}
+
+
 Object.freeze(wolfgang);
 
 export default 'init';
+  
