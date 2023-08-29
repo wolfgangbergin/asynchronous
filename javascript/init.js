@@ -7,7 +7,9 @@ window.wolfgang = {
   countriesContainer: document.querySelector('.countries'),
   // btn2: document.querySelector('.btn-country2'),
   // countriesContainer2: document.querySelector('.countries2'),
+  images: document.querySelector('.images')
 };
+
 
 ///////////////////////////////////////////////
 
@@ -147,13 +149,26 @@ wolfgang.wolffunc = function (country) {
 
 
 wolfgang.creatImage = (path)=>{
-  const promise = new Promise((res, rej, path)=>{
+ 
+  const promise = new Promise((res, rej, )=>{
+    
    let temp =  document.createElement('img')
    temp.src = path
+   wolfgang.images.appendChild(temp)
    res(temp),
    rej(new Error('image load error ♞♞♔'))
   })
+ return promise
+};
 
+
+wolfgang.waitFunc = (res)=>{
+  setTimeout(()=>{
+    res.style.display = 'none'
+   
+
+  }, 2000)
+  
 }
 
 
