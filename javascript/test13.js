@@ -1,11 +1,15 @@
 wolfgang
   .creatImage(`img/img-1.jpg`)
-  .then(res => {
-     wolfgang.waitFunc(res);
-   return res
+  .then(data => {
+    return  wolfgang.waitFunc(data);
+    
   })
-//   .then((res)=>{res.src = 'img/img-2.jpg'})
-  .catch(error => d(error));
+  .then((data)=>{l(data)})
+  .catch(error => d(error.message));
+
+
+
+
 
 
 

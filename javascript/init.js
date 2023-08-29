@@ -7,9 +7,8 @@ window.wolfgang = {
   countriesContainer: document.querySelector('.countries'),
   // btn2: document.querySelector('.btn-country2'),
   // countriesContainer2: document.querySelector('.countries2'),
-  images: document.querySelector('.images')
+  images: document.querySelector('.images'),
 };
-
 
 ///////////////////////////////////////////////
 
@@ -81,7 +80,6 @@ wolfgang.wolfJson = (
   return proimes;
 }),
   (wolfgang.geoFunc = function (res, rej) {
-   
     navigator.geolocation.getCurrentPosition(res, rej);
   }),
   (wolfgang.gitposition = function () {
@@ -147,32 +145,34 @@ wolfgang.wolffunc = function (country) {
     .finally(() => (wolfgang.countriesContainer.style.opacity = 1));
 };
 
+wolfgang.creatImage = path => {
+  const promise = new Promise((res, rej) => {
+    let temp = document.createElement('img');
+    temp.src = path;
+    wolfgang.images.appendChild(temp);
+    temp.addEventListener('load', () => res(temp));
 
-wolfgang.creatImage = (path)=>{
- 
-  const promise = new Promise((res, rej, )=>{
+    temp.addEventListener('error', e => {
+      e.message = 'Wrong path error'
     
-   let temp =  document.createElement('img')
-   temp.src = path
-   wolfgang.images.appendChild(temp)
-   res(temp),
-   rej(new Error('image load error ♞♞♔'))
-  })
- return promise
+      rej(e);
+    });
+  });
+  return promise;
 };
 
+wolfgang.waitFunc = data => {
+  const promise = new Promise((res, rej) => {
+    setTimeout(() => {
+      data.style.display = 'none';
+      l(data);
+      res(data);
+    }, 2000);
+  });
 
-wolfgang.waitFunc = (res)=>{
-  setTimeout(()=>{
-    res.style.display = 'none'
-   
-
-  }, 2000)
-  
-}
-
+  return promise;
+};
 
 Object.freeze(wolfgang);
 
 export default 'init';
-  
