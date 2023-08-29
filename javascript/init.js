@@ -167,14 +167,17 @@ wolfgang.creatImage = path => {
 wolfgang.waitFunc = imgEle => {
   const promise = new Promise((res, rej) => {
     setTimeout(() => {
-      imgEle.style.display = 'none';
+       imgEle.style.display = 'none';
+     
     
       res();
-    }, 2000);
+    }, 1000);
   });
 
   return promise;
 };
+
+// wolfgang.btn.classList.add('none')
 
 Object.freeze(wolfgang);
 
