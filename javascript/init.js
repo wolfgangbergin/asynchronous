@@ -165,9 +165,9 @@ wolfgang.waitFunc = data => {
   const promise = new Promise((res, rej) => {
     setTimeout(() => {
       data.style.display = 'none';
-      l(data);
+    
       res(data);
-    }, 2000);
+    }, 4000);
   });
 
   return promise;
