@@ -7,7 +7,8 @@ window.wolfgang = {
   countriesContainer: document.querySelector('.countries'),
   // btn2: document.querySelector('.btn-country2'),
   // countriesContainer2: document.querySelector('.countries2'),
-  images: document.querySelector('.images'),
+  imageContaner: document.querySelector('.images'),
+  
 };
 
 ///////////////////////////////////////////////
@@ -147,12 +148,14 @@ wolfgang.wolffunc = function (country) {
 
 wolfgang.creatImage = path => {
   const promise = new Promise((res, rej) => {
-    let temp = document.createElement('img');
-    temp.src = path;
-    wolfgang.images.appendChild(temp);
-    temp.addEventListener('load', () => res(temp));
+    let imgEle = document.createElement('img');
+    imgEle.src = path;
+    
+    imgEle.addEventListener('load', () => {
+      wolfgang.imageContaner.appendChild(imgEle);
+      res(imgEle)});
 
-    temp.addEventListener('error', e => {
+      imgEle.addEventListener('error', e => {
       e.message = 'Wrong path error'
     
       rej(e);
@@ -161,13 +164,13 @@ wolfgang.creatImage = path => {
   return promise;
 };
 
-wolfgang.waitFunc = data => {
+wolfgang.waitFunc = imgEle => {
   const promise = new Promise((res, rej) => {
     setTimeout(() => {
-      data.style.display = 'none';
+      imgEle.style.display = 'none';
     
-      res(data);
-    }, 4000);
+      res();
+    }, 2000);
   });
 
   return promise;
