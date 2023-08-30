@@ -166,16 +166,16 @@ wolfgang.creatImage = path => {
 };
 
 wolfgang.waitFunc = imgEle => {
-  const promise = new Promise((res, rej) => {
+  return new Promise((res, rej) => {
     setTimeout(() => {
        imgEle.style.display = 'none';
      
     
-      res(imgEle);
+      res();
     }, 2000);
   });
 
-  return promise;
+
 };
 
 // wolfgang.btn.classList.add('none')
