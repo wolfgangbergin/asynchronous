@@ -171,7 +171,7 @@ wolfgang.waitFunc = imgEle => {
      
     
       res();
-    }, 1000);
+    }, 2000);
   });
 
   return promise;
