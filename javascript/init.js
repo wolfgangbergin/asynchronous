@@ -148,11 +148,11 @@ wolfgang.wolffunc = function (country) {
 
 wolfgang.creatImage = path => {
   const promise = new Promise((res, rej) => {
-    let imgEle = document.createElement('img');
+    const imgEle = document.createElement('img');
     imgEle.src = path;
     
     imgEle.addEventListener('load', () => {
-      wolfgang.imageContaner.appendChild(imgEle);
+      wolfgang.imageContaner.replaceChildren(imgEle);
       res(imgEle)});
 
       imgEle.addEventListener('error', e => {
@@ -170,7 +170,7 @@ wolfgang.waitFunc = imgEle => {
        imgEle.style.display = 'none';
      
     
-      res();
+      res(imgEle);
     }, 2000);
   });
 
