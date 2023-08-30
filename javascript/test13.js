@@ -12,9 +12,6 @@ wolfgang
   .then(data => {
     return  wolfgang.creatImage(`img/img-3.jpg`);
    })
-   .then(data => {
-     return wolfgang.waitFunc(data);
-   })
   .catch(error => d(error.message));
 
 export default 'test13';

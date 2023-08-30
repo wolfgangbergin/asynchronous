@@ -152,6 +152,7 @@ wolfgang.creatImage = path => {
     imgEle.src = path;
     
     imgEle.addEventListener('load', () => {
+      l(`${path} loaded`)
       wolfgang.imageContaner.replaceChildren(imgEle);
       res(imgEle)});
 
