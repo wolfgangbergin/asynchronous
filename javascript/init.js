@@ -88,6 +88,7 @@ wolfgang.wolfJson = (
   });
 
 wolfgang.whereAmI = (lat, lng) => {
+  
   const temp = fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
     .then(res => {
       return res.json();
@@ -178,7 +179,12 @@ wolfgang.waitFunc = imgEle => {
 
 };
 
-// wolfgang.btn.classList.add('none')
+wolfgang.whereAmI2 = async(lat, lng) =>{
+
+  const temp = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+  l(temp)
+
+}
 
 Object.freeze(wolfgang);
 
