@@ -168,7 +168,7 @@ wolfgang.creatImage = path => {
 wolfgang.waitFunc = imgEle => {
   return new Promise((res, rej) => {
     setTimeout(() => {
-       imgEle.style.display = 'none';
+      //  imgEle.style.display = 'none';
      
     
       res();
