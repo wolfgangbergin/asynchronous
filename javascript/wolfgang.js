@@ -36,20 +36,16 @@ wolfgang.renderCountry = function (
         </article>`;
   if (ele === wolfgang.countriesContainer) {
     wolfgang.countriesContainer.insertAdjacentHTML('beforeend', html);
-    //  wolfgang.countriesContainer.style.opacity = 1;
+ 
   }
 
-  if (ele === wolfgang.countriesContainer2) {
-    wolfgang.countriesContainer2.insertAdjacentHTML('beforeend', html);
-    wolfgang.countriesContainer2.style.opacity = 1;
-  }
 
   return data;
 };
 
 wolfgang.renderError = message => {
   wolfgang.countriesContainer.insertAdjacentText('beforeend', message);
-  // wolfgang.countriesContainer.style.opacity = 1
+ 
 };
 
 wolfgang.wolfJson = (

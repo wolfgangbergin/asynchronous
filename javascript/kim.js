@@ -2,7 +2,7 @@ window.kim = {};
 
 kim.kimfunc = async function (country) {
   try {
-    var temp1 = await wolfgang.wolfJson(
+    var temp1 = await kim.kimJson(
       country,
       undefined,
       wolfgang.renderCountry,
@@ -37,8 +37,6 @@ kim.kimfunc = async function (country) {
     })(temp2);
   } catch (error) {
     d(error);
-
-    
     wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
   }
 
@@ -74,8 +72,10 @@ kim.kimJson = async function (
     }
     const temp2 = await temp1.json();
 
-    const temp3 = await wolfgang.renderCountry(temp2, undefined, className);
-    return temp3;
+    let temp3 = Array.isArray(temp2) ? temp2[0] : temp2;
+
+    const temp4 = await wolfgang.renderCountry(temp3, undefined, className);
+    return temp4;
   } catch (error) {
     d(error);
   }
