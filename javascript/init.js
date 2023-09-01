@@ -181,8 +181,24 @@ wolfgang.waitFunc = imgEle => {
 
 wolfgang.whereAmI2 = async(lat, lng) =>{
 
-  const temp = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
-  l(temp)
+try{
+  const temp1 = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+  const temp2 = await temp1.json() 
+  if (temp2.altgeocode === `Throttled! See geocode.xyz/pricing`) {
+    throw new Error(`Error Throttled!🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬`);
+  }
+  l(`You Are in ${temp2.city}, ${temp2.country}!!! `);
+  wolfgang.wolffunc(temp2.country);
+
+
+} catch(error) {
+  
+  d(`${error}❗❗❗❗❗`)
+}
+
+
+
+
 
 }
 
