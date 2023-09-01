@@ -17,10 +17,8 @@ wolfgang.renderCountry = function (
   ele = wolfgang.countriesContainer,
   className = ''
 ) {
-  l(data)
-
-
-
+  
+  
   const html = `
         <article class="country ${className}">
         <img class="country__img" src="${data.flag}" /> 
@@ -178,10 +176,6 @@ wolfgang.waitFunc = imgEle => {
     }, 2000);
   });
 };
-
-
-
-
 
 Object.freeze(wolfgang);
 
