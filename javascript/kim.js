@@ -22,7 +22,7 @@ kim.kimfunc = async function (country) {
         `https://restcountries.com/v2/alpha`
       );
     })(temp1);
-    
+
     const temp3 = await (temp2 => {
       if (!temp2.borders) {
         throw new Error(`${temp2.name} Has no Borders`);
@@ -37,6 +37,8 @@ kim.kimfunc = async function (country) {
     })(temp2);
   } catch (error) {
     d(error);
+
+    
     wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
   }
 
@@ -50,7 +52,7 @@ kim.whereAmI = async (lat, lng) => {
     if (temp2.altgeocode === `Throttled! See geocode.xyz/pricing`) {
       throw new Error(`Error Throttled!🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬`);
     }
-    
+
     kim.kimfunc(temp2.country);
   } catch (error) {
     d(`${error}❗❗❗❗❗`);
@@ -71,9 +73,6 @@ kim.kimJson = async function (
       throw new Error(eMessage);
     }
     const temp2 = await temp1.json();
-
-
-    
 
     const temp3 = await wolfgang.renderCountry(temp2, undefined, className);
     return temp3;
