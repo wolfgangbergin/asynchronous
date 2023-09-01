@@ -1,4 +1,5 @@
-import init from './init.js';
+import wolfgang from './wolfgang.js';
+import kim from './kim.js';
 //import testTest from './testTest.js';
 // import test1 from './test1.js';
 // import test2 from './test2.js';
