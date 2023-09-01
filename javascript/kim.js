@@ -72,14 +72,18 @@ kim.kimJson = async function (
     }
     const temp2 = await temp1.json();
 
-    let temp3 = Array.isArray(temp2) ? temp2[0] : temp2;
-
-    const temp4 = await wolfgang.renderCountry(temp3, undefined, className);
+    const temp4 = await wolfgang.renderCountry(
+      Array.isArray(temp2) ? temp2[0] : temp2,
+      undefined,
+      className
+    );
     return temp4;
   } catch (error) {
     d(error);
   }
 };
+
+
 
 Object.freeze(kim);
 export default 'kim';
