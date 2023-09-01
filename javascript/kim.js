@@ -26,7 +26,7 @@ kim.kimfunc = async function (country) {
       if (!temp2.borders) {
         throw new Error(`${temp2.name} Has no Borders`);
       }
-      return wolfgang.wolfJson(
+      return kim.kimJson(
         temp2.borders[1],
         'neighbour',
         wolfgang.renderCountry,
@@ -43,18 +43,43 @@ kim.kimfunc = async function (country) {
 };
 
 kim.whereAmI = async (lat, lng) => {
-    try {
-      const temp1 = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
-      const temp2 = await temp1.json();
-      if (temp2.altgeocode === `Throttled! See geocode.xyz/pricing`) {
-        throw new Error(`Error Throttled!🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬`);
-      }
-      l(`You Are in ${temp2.city}, ${temp2.country}!!! `);
-      kim.kimfunc(temp2.country);
-    } catch (error) {
-      d(`${error}❗❗❗❗❗`);
+  try {
+    const temp1 = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`);
+    const temp2 = await temp1.json();
+    if (temp2.altgeocode === `Throttled! See geocode.xyz/pricing`) {
+      throw new Error(`Error Throttled!🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬🤬`);
     }
-  };
+    l(`You Are in ${temp2.city}, ${temp2.country}!!! `);
+    kim.kimfunc(temp2.country);
+  } catch (error) {
+    d(`${error}❗❗❗❗❗`);
+  }
+};
+
+kim.kimJson = async function (
+    response = undefined,
+  className = '',
+  cbf,
+  eMessage,
+  url
+) {
+  try {
+    const temp1 = await fetch(`${url}/${response}`);
+    
+    if (!temp1.ok) {
+        throw new Error(eMessage);
+      }
+    const temp2 = await temp1.json();
+  
+   const temp3 = await wolfgang.renderCountry(temp2, undefined, className);
+   
+
+
+
+  } catch (error) {
+    d(error);
+  }
+};
 
 Object.freeze(kim);
 export default 'kim';
