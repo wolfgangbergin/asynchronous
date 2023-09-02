@@ -53,7 +53,10 @@ kim.whereAmI = async (lat, lng) => {
 
     kim.kimfunc(temp2.country);
   } catch (error) {
-    d(`${error}❗❗❗❗❗`);
+    wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
+    throw error;
+    throw new Error(`${error}❗❗❗❗❗`);
+   
   }
 };
 
@@ -80,6 +83,7 @@ kim.kimJson = async function (
     return temp4;
   } catch (error) {
     d(error);
+    wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
   }
 };
 

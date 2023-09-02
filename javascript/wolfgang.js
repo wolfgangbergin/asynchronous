@@ -44,8 +44,10 @@ wolfgang.renderCountry = function (
 };
 
 wolfgang.renderError = message => {
+
   wolfgang.countriesContainer.insertAdjacentText('beforeend', message);
- 
+
+  wolfgang.countriesContainer.style.opacity = 1;
 };
 
 wolfgang.wolfJson = (
