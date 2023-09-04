@@ -6,7 +6,7 @@ async function loadAndPause() {
     await wolfgang.waitFunc(temp2);
     const temp3 = await wolfgang.creatImage(`img/img-3.jpg`);
     await wolfgang.waitFunc(temp3);
-    
+    loadAndPause();
   } catch (error) {
     d(error);
   }
