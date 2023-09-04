@@ -12,10 +12,10 @@ import kim from './kim.js';
 // import test10 from './test10.js';
 // import test11 from './test11.js';
 //import test12 from './test12.js';
-//import test13 from './test13.js';
- import test14 from './test14.js'
-import test15 from './test15.js';
-import test16 from './test16.js';
-
+// import test13 from './test13.js';
+//  import test14 from './test14.js'
+// import test15 from './test15.js';
+// import test16 from './test16.js';
+ import test17 from './test17.js';
 
 

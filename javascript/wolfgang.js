@@ -165,13 +165,13 @@ wolfgang.creatImage = path => {
   return promise;
 };
 
-wolfgang.waitFunc = time => {
+wolfgang.waitFunc = imgEle => {
   return new Promise((res, rej) => {
     setTimeout(() => {
-      //  imgEle.style.display = 'none';
+        imgEle.style.display = 'none';
 
-      res('took to long');
-    }, time);
+      res();
+    }, 1000);
   });
 };
 
