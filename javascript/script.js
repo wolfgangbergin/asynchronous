@@ -16,7 +16,9 @@ import kim from './kim.js';
 //  import test14 from './test14.js'
 // import test15 from './test15.js';
 // import test16 from './test16.js';
- import test17 from './test17.js';
+//  import test17 from './test17.js';
+import test18 from './test18.js'
+import test19 from './test19.js'
 
 
 
