@@ -14,8 +14,10 @@ const tempFunc = async () => {
   }
 };
 
-l('1');
- tempFunc().then(res => l(`wolf: ${res}`)).catch(error => l(`2: ${error}💥💥💥💥💥💥💥`)).finally(()=>l(3));
+
+
+// l('1');
+//  tempFunc().then(res => l(`wolf: ${res}`)).catch(error => l(`2: ${error}💥💥💥💥💥💥💥`)).finally(()=>l(3));
 
 // (async () => {
 //   try {
@@ -26,6 +28,12 @@ l('1');
 //   }
 //   l(`3`);
 // })()
+
+
+
+
+
+
 
 
 

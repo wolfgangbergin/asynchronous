@@ -36,7 +36,7 @@ wolfgang.renderCountry = function (
         </article>`;
   if (ele === wolfgang.countriesContainer) {
     wolfgang.countriesContainer.insertAdjacentHTML('beforeend', html);
- 
+    // wolfgang.countriesContainer.style.opacity = 1;
   }
 
 
@@ -47,7 +47,7 @@ wolfgang.renderError = message => {
 
   wolfgang.countriesContainer.insertAdjacentText('beforeend', message);
 
-  wolfgang.countriesContainer.style.opacity = 1;
+  // wolfgang.countriesContainer.style.opacity = 1;
 };
 
 wolfgang.wolfJson = (
@@ -165,15 +165,17 @@ wolfgang.creatImage = path => {
   return promise;
 };
 
-wolfgang.waitFunc = imgEle => {
+wolfgang.waitFunc = time => {
   return new Promise((res, rej) => {
     setTimeout(() => {
       //  imgEle.style.display = 'none';
 
-      res();
-    }, 2000);
+      res('took to long');
+    }, time);
   });
 };
+
+
 
 Object.freeze(wolfgang);
 
