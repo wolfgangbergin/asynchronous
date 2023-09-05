@@ -151,8 +151,9 @@ wolfgang.creatImage = path => {
     imgEle.src = path;
 
     imgEle.addEventListener('load', () => {
-      l(`${path} loaded`);
-      wolfgang.imageContaner.replaceChildren(imgEle);
+     
+      wolfgang.imageContaner.append(imgEle);
+      
       res(imgEle);
     });
 
@@ -168,10 +169,10 @@ wolfgang.creatImage = path => {
 wolfgang.waitFunc = imgEle => {
   return new Promise((res, rej) => {
     setTimeout(() => {
-        // imgEle.style.display = 'none';
+    //  imgEle.style.display = 'none';
 
       res();
-    }, 1000);
+    },  2000);
   });
 };
 

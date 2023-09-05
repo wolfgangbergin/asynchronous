@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size:22.5%;
+  font-size:32.5%;
   box-sizing: border-box;
 }
 
@@ -140,7 +140,7 @@ body {
 .images img.parallel {
   width: 40rem;
   margin: 2rem;
-  border: 3rem solid white;
+  border: 3rem solid rgb(103, 4, 241);
   box-shadow: 0 2rem 5rem 1rem rgba(0, 0, 0, 0.1);
 }
 

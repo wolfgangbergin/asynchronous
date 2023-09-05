@@ -1,3 +1,3 @@
-l('wolf313')
+// l('wolf313')
 
 export default 'test18'
