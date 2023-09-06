@@ -1,9 +1,7 @@
 async function loop(path) {
-  await wolfgang.newFunc(`img/img-1.jpg`).then(() => l('loaded'));
+  await wolfgang.newFunc(`img/img-1.jpg`);
   await wolfgang.newFunc(`img/img-2.jpg`);
   await wolfgang.newFunc(`img/img-3.jpg`);
-
-
 }
 
 // loop();
