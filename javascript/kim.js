@@ -94,5 +94,19 @@ kim.waitFunc = function (time) {
   })
   };
 
+
+
+  kim.waitFunc = time => {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+      //  imgEle.style.display = 'none';
+  
+        res(time);
+      },  time);
+    });
+  };
+
+
+
 Object.freeze(kim);
 export default 'kim';

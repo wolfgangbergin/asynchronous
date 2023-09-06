@@ -1,7 +1,7 @@
 import wolfgang from './wolfgang.js';
 import kim from './kim.js';
 import jobob from './jobob.js';
-//import testTest from './testTest.js';
+import testTest from './testTest.js';
 // import test1 from './test1.js';
 // import test2 from './test2.js';
 // import test3 from './test3.js';
@@ -18,8 +18,9 @@ import jobob from './jobob.js';
 // import test15 from './test15.js';
 // import test16 from './test16.js';
   // import test17 from './test17.js';
-// import test18 from './test18.js'
- import test19 from './test19.js'
+import test18 from './test18.js'
+  import test19 from './test19.js'
+ import test20 from './test20.js';
 
 
 

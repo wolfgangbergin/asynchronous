@@ -1,49 +1,14 @@
+let wolfFunc = async array => {
+  const temp1 = array.map(async data => {
+    const temp1 = await wolfgang.waitFunc(data)
+    l(temp1)
+     return `${temp1} loaded`
+  });
+  l(temp1);
+  const temp2 = await Promise.all(temp1);
+  l(temp2);
+};
 
+// wolfFunc([100, 500, 1000]);
 
-
-
-
-
-// wolfgang.wolffunc = function (country) {
-//     wolfgang
-//       .wolfJson(
-//         country,
-//         undefined,
-//         wolfgang.renderCountry,
-//         `country Not Found`,
-//         `https://restcountries.com/v2/name`
-//       )
-//       .then(response => {
-//         if (!response.borders) {
-//           throw new Error(`${response.name} Has no Borders`);
-//         }
-//         return wolfgang.wolfJson(
-//           response?.borders[1],
-//           'neighbour',
-//           wolfgang.renderCountry,
-//           `country Not Found`,
-//           `https://restcountries.com/v2/alpha`
-//         );
-//       })
-//       .then(response => {
-//         if (!response.borders) {
-//           throw new Error(`${response.name} Has no Borders`);
-//         }
-//         return wolfgang.wolfJson(
-//           response.borders[1],
-//           'neighbour',
-//           wolfgang.renderCountry,
-//           `country Not Found`,
-//           `https://restcountries.com/v2/alpha`
-//         );
-//       })
-//       .catch(error => {
-//         d(error);
-//         wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
-//       })
-//       .finally(() => (wolfgang.countriesContainer.style.opacity = 1));
-//   };
-
-
-
-export default 'testTest'
+export default 'testTest';

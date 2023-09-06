@@ -22,18 +22,13 @@
 
 const loadAll =  async function (array) {
 try{
-   const banana =  array.map(async data => await wolfgang.creatImage(data))
-  l(banana)
+   const banana =  array.map( data =>  wolfgang.creatImage(data))
+  l('banana')
+
    const data = await Promise.all(banana)
 
    data.forEach(data => (data.className = 'parallel'))
-  
- //    data.forEach(data => (loadAndPause(data.src)))
-   
-   
- //   .then(
- //     data => data.forEach(data => (data.className = 'parallel'))
- //   );
+ 
  }catch(error){
    l(error)
  }
@@ -42,8 +37,7 @@ try{
 
 
 
-   loadAll([`img/img-1.jpg`, `img/img-2.jpg`, `img/img-3.jpg`]);
+//   loadAll([`img/img-1.jpg`, `img/img-2.jpg`, `img/img-3.jpg`]);
 
 export default 'test18';
 
-//paralell

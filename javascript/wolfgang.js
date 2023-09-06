@@ -17,8 +17,6 @@ wolfgang.renderCountry = function (
   ele = wolfgang.countriesContainer,
   className = ''
 ) {
-  
-  
   const html = `
         <article class="country ${className}">
         <img class="country__img" src="${data.flag}" /> 
@@ -39,12 +37,10 @@ wolfgang.renderCountry = function (
     // wolfgang.countriesContainer.style.opacity = 1;
   }
 
-
   return data;
 };
 
 wolfgang.renderError = message => {
-
   wolfgang.countriesContainer.insertAdjacentText('beforeend', message);
 
   // wolfgang.countriesContainer.style.opacity = 1;
@@ -151,9 +147,9 @@ wolfgang.creatImage = path => {
     imgEle.src = path;
 
     imgEle.addEventListener('load', () => {
-     
-      wolfgang.imageContaner.append(imgEle);
-      
+       l(`${imgEle.src} loaded`);
+      // wolfgang.imageContaner.replaceChiled(imgEle);
+      wolfgang.imageContaner.replaceChildren(imgEle);
       res(imgEle);
     });
 
@@ -166,17 +162,26 @@ wolfgang.creatImage = path => {
   return promise;
 };
 
-wolfgang.waitFunc = imgEle => {
+wolfgang.waitFunc = time => {
   return new Promise((res, rej) => {
     setTimeout(() => {
-    //  imgEle.style.display = 'none';
+      //  imgEle.style.display = 'none';
 
-      res();
-    },  2000);
+      res('wolfman');
+    }, 2000);
   });
 };
 
-
+wolfgang.newFunc = async function (path) {
+  try {
+    await Promise.all([
+      await wolfgang.creatImage(path),
+      await wolfgang.waitFunc(),
+    ]);
+  } catch (error) {
+    throw error;
+  }
+};
 
 Object.freeze(wolfgang);
 
