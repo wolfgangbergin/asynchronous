@@ -23,3 +23,6 @@ import testTest from './testTest.js';
  import test20 from './test20.js';
 import test21 from './test21.js';
 import test22 from './test22.js';
+import test23 from './test23.js';
+ import test24 from './test24.js';
+

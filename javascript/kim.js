@@ -56,7 +56,6 @@ kim.whereAmI = async (lat, lng) => {
     wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
     throw error;
     throw new Error(`${error}❗❗❗❗❗`);
-   
   }
 };
 
@@ -69,7 +68,7 @@ kim.kimJson = async function (
 ) {
   try {
     const temp1 = await fetch(`${url}/${response}`);
-      
+
     if (!temp1.ok) {
       throw new Error(eMessage);
     }
@@ -82,31 +81,37 @@ kim.kimJson = async function (
     );
     return temp4;
   } catch (error) {
-
     //  wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
     throw new Error(`${error}❗❗❗❗❗`);
   }
 };
 
 kim.waitFunc = function (time) {
-  return new Promise((res, rej)=>{
-    setTimeout(()=>rej( new Error('request took too long')),time)
-  })
-  };
+  return new Promise((res, rej) => {
+    setTimeout(() => rej(new Error('request took too long')), time);
+  });
+};
 
-
-
-  kim.waitFunc = time => {
-    return new Promise((res, rej) => {
-      setTimeout(() => {
+kim.waitFunc = time => {
+  return new Promise((res, rej) => {
+    setTimeout(() => {
       //  imgEle.style.display = 'none';
-  
-        res(time);
-      },  time);
-    });
-  };
 
+      res(time);
+    }, time);
+  });
+};
 
+kim.sleep = (time, data, ) => {
+  const promise = new Promise((res, _) => {
+    if (data === `United States of America`) {
+      setTimeout(() => res(`${data} ${time}`), time);
+    }
+      setTimeout(res, time);
+  });
+
+  return promise;
+};
 
 Object.freeze(kim);
 export default 'kim';
