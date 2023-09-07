@@ -20,5 +20,6 @@ import testTest from './testTest.js';
 // import test17 from './test17.js';
 // import test18 from './test18.js';
 // import test19 from './test19.js';
-// import test20 from './test20.js';
+ import test20 from './test20.js';
 import test21 from './test21.js';
+import test22 from './test22.js';

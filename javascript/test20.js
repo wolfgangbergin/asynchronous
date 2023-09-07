@@ -1,11 +1,14 @@
-async function loop(path) {
-  await wolfgang.newFunc(`img/img-1.jpg`);
-  await wolfgang.newFunc(`img/img-2.jpg`);
-  await wolfgang.newFunc(`img/img-3.jpg`);
+async function loop(param) {
+
+    for (let i = 0; i < param.length; i++) {
+        const data = await wolfgang.newFunc(param[i]);
+        l(data[0])
+       }
+       loop(param) 
+
 }
 
-// loop();
+//  loop([`img/img-1.jpg`, `img/img-2.jpg`, `img/img-3.jpg`]);
 
 export default 'test10';
 
-//[`img/img-1.jpg`, `img/img-2.jpg`, `img/img-3.jpg`]

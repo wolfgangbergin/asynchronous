@@ -147,7 +147,7 @@ wolfgang.creatImage = path => {
     imgEle.src = path;
 
     imgEle.addEventListener('load', () => {
-       l(`${imgEle.src} loaded`);
+      
       // wolfgang.imageContaner.replaceChiled(imgEle);
       wolfgang.imageContaner.replaceChildren(imgEle);
       res(imgEle);
@@ -174,13 +174,16 @@ wolfgang.waitFunc = time => {
 
 wolfgang.newFunc = async function (path) {
   try {
-    await Promise.all([
+    return  await Promise.all([
       await wolfgang.creatImage(path),
       await wolfgang.waitFunc(),
+      
     ]);
+    
   } catch (error) {
     throw error;
   }
+  
 };
 
 Object.freeze(wolfgang);
