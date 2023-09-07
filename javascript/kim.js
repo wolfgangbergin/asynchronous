@@ -53,7 +53,10 @@ kim.whereAmI = async (lat, lng) => {
 
     kim.kimfunc(temp2.country);
   } catch (error) {
-    d(`${error}❗❗❗❗❗`);
+    wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
+    throw error;
+    throw new Error(`${error}❗❗❗❗❗`);
+   
   }
 };
 
@@ -66,22 +69,42 @@ kim.kimJson = async function (
 ) {
   try {
     const temp1 = await fetch(`${url}/${response}`);
-
+      
     if (!temp1.ok) {
       throw new Error(eMessage);
     }
     const temp2 = await temp1.json();
 
-    const temp4 = await wolfgang.renderCountry(
+    const temp4 = await cbf(
       Array.isArray(temp2) ? temp2[0] : temp2,
       undefined,
       className
     );
     return temp4;
   } catch (error) {
-    d(error);
+
+    //  wolfgang.renderError(`${error.message}🇦🇱🇦🇱🇦🇱`);
+    throw new Error(`${error}❗❗❗❗❗`);
   }
 };
+
+kim.waitFunc = function (time) {
+  return new Promise((res, rej)=>{
+    setTimeout(()=>rej( new Error('request took too long')),time)
+  })
+  };
+
+
+
+  kim.waitFunc = time => {
+    return new Promise((res, rej) => {
+      setTimeout(() => {
+      //  imgEle.style.display = 'none';
+  
+        res(time);
+      },  time);
+    });
+  };
 
 
 
