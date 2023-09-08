@@ -38,6 +38,6 @@ const kimFunc = async (...param) => {
   }
 };
 
-// kimFunc(100, 500, 10, 1000, 10001);
+//  kimFunc(100, 500, 10, 1000, 1001);
 
 export default 'test23';

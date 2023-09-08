@@ -25,6 +25,6 @@ const kimFunc = async (...param) => {
     .catch(error => d(error));
 };
 
-// kimFunc(100, 500, 10, 1000, 1001);
+//  kimFunc(100, 500, 10, 1000, 1001);
 
 export default 'test25';

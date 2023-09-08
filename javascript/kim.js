@@ -102,11 +102,10 @@ kim.waitFunc = time => {
   });
 };
 
-kim.sleep = (time, pass) => {
+kim.sleep = (time, param2) => {
   const promise = new Promise((res, rej) => {
-    !pass === `United States of America` && rej(new Error(`Error`));
-    pass === `United States of America` &&
-      setTimeout(() => res(`${time}  `), time);
+   
+      setTimeout(() => res(`${time} ${param2} `), time);
   });
 
   return promise;
