@@ -1,4 +1,1 @@
-
-::: warning
-*here be dragons*
-:::
+`wolf`
