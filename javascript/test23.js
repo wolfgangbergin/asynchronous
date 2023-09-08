@@ -22,25 +22,22 @@ const taskC = () => fetch('https://restcountries.com/v2/name/mexico');
 // };
 
 const kimFunc = async (...param) => {
-    try {
-      const wolf = Promise.all([taskA(), taskB(), taskC()]);
-  
-      const [{ name: temp2 }] = await wolf
-        .then(data => data[0].json())
-        .then(data => data);
-  
-  for (let i = 0; i<param.length; i++){
-     let temp3 = await kim.sleep(temp2, param[i])
+  try {
+    const wolf = Promise.all([taskA(), taskB(), taskC()]);
 
-    l(temp3)
-  }
-      
-    } catch (error) {
-      d(error);
+    const [{ name: temp2 }] = await wolf
+      .then(data => data[0].json())
+      .then(data => data);
+    let temp3 = ``;
+    for (let i = 0; i < param.length; i++) {
+      temp3 += await kim.sleep(param[i], temp2);
     }
-  };
-  
+    l(`${temp3} ${temp2}`);
+  } catch (error) {
+    d(error);
+  }
+};
 
-// kimFunc(100, 500, 10, 1000, 5000);
+// kimFunc(100, 500, 10, 1000, 10001);
 
 export default 'test23';
